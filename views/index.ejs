@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capitolo 1</title>
+    <title>M2</title>
 </head>
 
-<body>
-    <p>C1</p>
+<body id="b">
+
+
+    <% for(let i=0; i < nMaou; i++) { %>
+        <% var link = maouLinks[i]%>
+        <a href="<%=link%>">Capitolo <%=i+1%></a>
+        <br>
+    <% } %>
+
+
+
 </body>
 
 </html>

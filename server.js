@@ -42,7 +42,26 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', (req, res) => {
-    res.render('index', {nMaou, maouLinks});
+    const manga = [{
+        titolo: 'Maou no Ore ga Dorei Elf',
+        img: '/images/Cover/maou.png'
+    },
+    {
+        titolo: 'Assassin de Aru Ore no Sutetasu ga Yuusha Yori mo akiraka ni tsuyoi nodaga',
+        img: '/images/Cover/assassin.png'
+    },
+    {
+        titolo: 'I Am The Sorcerer King',
+        img: '/images/Cover/sorcerer.png'
+    }];
+
+    res.render('index', {
+        manga, PORT
+    })
+});
+
+app.get('/Maou', (req, res) => {
+    res.render('Maou/index', {nMaou, maouLinks});
 });
 
 

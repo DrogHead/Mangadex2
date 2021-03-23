@@ -1,20 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M2</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Il Basso Consiglio</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="http://localhost:8000/css/home.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="b">
+<body>
+    
+    <div class="barra_sinistra">
+        <div class="bg_logo">
+            <img id="logo" src="images/logo/logo-dark.png">
+        </div>
+    </div>
+    <div id="ilBassoConsiglio">
+        <span>Il Basso Consiglio</span>
+    </div>
 
-    <% for(let i=0; i < nMaou; i++) { %>
-        <% var link = maouLinks[i]%>
-        <a href="<%=link%>">Capitolo <%=i+1%></a>
-        <br>
-    <% } %>
+    <div class="bg_destra">
+        <span class="titolo">Serie in evidenza</span>
+        <span class="linea"></span>
+        <div class="manga_evidenza">
+            <div class="spacer"></div>
+            <% manga.forEach(m => { %>
+                <div class="scheda_manga">
+                    <img class="img_manga" src=<%=m.img %>>
+                    <span class="titolo_manga">
+                        <%= m.titolo %>
+                    </span>
+                </div>
+                <div class="spacer"></div>
+            <% }) %>
+        </div>
+    </div>
+
+
+    <script defer>
+
+        let lines = document.getElementsByClassName('linea');
+        // let spacers = document.getElementsByClassName('spacer');    
+
+        // Riempie di spazi i div spacer per non avere problemi con le lettere
+        // function space(n) {
+        //     for(let s of spacers) {
+        //         for(let i = 0; i < n; i++) {
+        //             s.innerHTML += '&emsp;';
+        //         }
+        //     }
+        // }
+
+
+
+        let bg_logo = document.getElementsByClassName('bg_logo')[0];
+        let bassoC = document.getElementById("ilBassoConsiglio");
+        let title = document.getElementsByClassName('titolo')[0];
+        let line = lines[0];
+
+        // R E S P O N S I V E
+        function responsive() {
+
+            bg_logo.style.height = bg_logo.getBoundingClientRect().width + 'px';
+
+            bassoC.style.marginLeft = (0.5*bg_logo.getBoundingClientRect().height) + 'px';
+            bassoC.style.marginTop = (bg_logo.getBoundingClientRect().height) + 'px';
+            bassoC.style.fontSize = (0.3*bg_logo.getBoundingClientRect().width) + 'pt';
+            bassoC.style.lineHeight = (0.3*bg_logo.getBoundingClientRect().width) + 'pt';
+            bassoC.style.width = (Math.PI*bg_logo.getBoundingClientRect().height) + 'px';
+
+            title.style.marginTop = (0.35*bg_logo.getBoundingClientRect().height) + 'px';
+            title.style.fontSize = (0.2*bg_logo.getBoundingClientRect().width) + 'pt';
+            title.style.lineHeight = (0.2*bg_logo.getBoundingClientRect().width) + 'pt';
+
+            line.style.marginTop = (title.getBoundingClientRect().height + 0.35*bg_logo.getBoundingClientRect().height) + 'px';
+
+        }
+
+        window.addEventListener('resize', responsive);
+
+        responsive();
+        // space(3);
+
+    </script>
+
 
 </body>
 

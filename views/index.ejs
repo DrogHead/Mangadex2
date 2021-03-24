@@ -24,7 +24,6 @@
         <span class="titolo">Serie in evidenza</span>
         <span class="linea"></span>
         <div class="mangas">
-            <div class="spacer"></div>
             <% manga.forEach(m => { %>
                 <div class="scheda_manga">
                     <img class="img_manga" src=<%=m.img %>>
@@ -32,7 +31,6 @@
                         <%= m.titolo %>
                     </span>
                 </div>
-                <div class="spacer"></div>
             <% }) %>
         </div>
     </div>
@@ -40,24 +38,24 @@
 
     <script defer>
 
-        let lines = document.getElementsByClassName('linea');
-        // let spacers = document.getElementsByClassName('spacer');    
-
-        // Riempie di spazi i div spacer per non avere problemi con le lettere
-        // function space(n) {
-        //     for(let s of spacers) {
-        //         for(let i = 0; i < n; i++) {
-        //             s.innerHTML += '&emsp;';
-        //         }
-        //     }
-        // }
-
-        let header = document.getElementsByClassName('barra_sinistra')[0];
+        let barraBasso = document.getElementsByClassName('barra_sinistra')[0];
         let bg_logo = document.getElementsByClassName('bg_logo')[0];
         let bassoC = document.getElementById("ilBassoConsiglio");
+        let minFontSize = 15;
+        bassoC.style.fontSize = minFontSize + 'pt';
+
         let titolo = document.getElementsByClassName('titolo')[0];
-        let man_ev = document.getElementsByClassName('mangas')[0];
+        let lines = document.getElementsByClassName('linea');
         let line = lines[0];
+
+        let man_ev = document.getElementsByClassName('mangas')[0];
+        let titoliM = document.getElementsByClassName('titolo_manga');
+        let TminFontSize = 10;
+        let TmaxFontSize = 20;
+        for(let t of titoliM) {
+            t.style.fontSize = TmaxFontSize + 'pt';
+        }
+        
 
         // R E S P O N S I V E
         function responsive() {
@@ -65,26 +63,45 @@
             bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
 
             bassoC.style.marginLeft = (0.5*bg_logo.getBoundingClientRect().width) + 'px';
-            bassoC.style.marginTop = (0.25*bg_logo.getBoundingClientRect().height) + 'px';
-            bassoC.style.fontSize = (0.3*header.getBoundingClientRect().height) + 'pt';
-            bassoC.style.lineHeight = (0.3*header.getBoundingClientRect().height) + 'pt';
-            bassoC.style.height = (Math.PI*header.getBoundingClientRect().width) + 'px';
+
+            let currentFontSize = (0.03*barraBasso.getBoundingClientRect().width);
+            bassoC.style.fontSize = currentFontSize + 'pt';
+            if(currentFontSize < minFontSize) {
+                bassoC.style.fontSize = minFontSize + 'pt';
+            }
+            bassoC.style.lineHeight = bassoC.style.fontSize;
+
+            bassoC.style.top = 0.5*(barraBasso.getBoundingClientRect().height - bassoC.children[0].getBoundingClientRect().height) + 'px';
 
 
-            titolo.style.top = (2*header.getBoundingClientRect().height) + 'px';
-            titolo.style.fontSize = (0.038*header.getBoundingClientRect().width) + 'pt';
-            titolo.style.lineHeight = (0.038*header.getBoundingClientRect().width) + 'pt';
+            titolo.style.top = (2*barraBasso.getBoundingClientRect().height) + 'px';
+            titolo.style.fontSize = (0.03*barraBasso.getBoundingClientRect().width) + 'pt';
+            titolo.style.lineHeight = (0.03*barraBasso.getBoundingClientRect().width) + 'pt';
 
             line.style.top = (titolo.getBoundingClientRect().height+titolo.getBoundingClientRect().top) + 'px';
             line.style.width = (25+titolo.getBoundingClientRect().width) + 'px';
 
             man_ev.style.top = (0.2*line.getBoundingClientRect().top+line.getBoundingClientRect().top) + 'px';
+            
+            for(let t of titoliM) {
+                let TcurrentFontSize = 0.02*man_ev.getBoundingClientRect().width
+
+                t.style.fontSize = TcurrentFontSize + 'pt';
+                if(TcurrentFontSize < TminFontSize) {
+                    t.style.fontSize = TminFontSize + 'pt';
+                }
+                if(TcurrentFontSize > TmaxFontSize) {
+                    t.style.fontSize = TmaxFontSize + 'pt';
+                }
+
+                t.style.lineHeight = t.style.fontSize;
+            }
+
         }
 
         window.addEventListener('resize', responsive);
 
         responsive();
-        // space(3);
 
     </script>
 

@@ -15,15 +15,15 @@
         <div class="bg_logo">
             <img id="logo" src="images/logo/logo-dark.png">
         </div>
-    </div>
-    <div id="ilBassoConsiglio">
-        <span>Il Basso Consiglio</span>
+        <div id="ilBassoConsiglio">
+            <span>Il Basso Consiglio</span>
+        </div>
     </div>
 
     <div class="bg_destra">
         <span class="titolo">Serie in evidenza</span>
         <span class="linea"></span>
-        <div class="manga_evidenza">
+        <div class="mangas">
             <div class="spacer"></div>
             <% manga.forEach(m => { %>
                 <div class="scheda_manga">
@@ -52,30 +52,33 @@
         //     }
         // }
 
-
-
+        let header = document.getElementsByClassName('barra_sinistra')[0];
         let bg_logo = document.getElementsByClassName('bg_logo')[0];
         let bassoC = document.getElementById("ilBassoConsiglio");
-        let title = document.getElementsByClassName('titolo')[0];
+        let titolo = document.getElementsByClassName('titolo')[0];
+        let man_ev = document.getElementsByClassName('mangas')[0];
         let line = lines[0];
 
         // R E S P O N S I V E
         function responsive() {
 
-            bg_logo.style.height = bg_logo.getBoundingClientRect().width + 'px';
+            bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
 
-            bassoC.style.marginLeft = (0.5*bg_logo.getBoundingClientRect().height) + 'px';
-            bassoC.style.marginTop = (bg_logo.getBoundingClientRect().height) + 'px';
-            bassoC.style.fontSize = (0.3*bg_logo.getBoundingClientRect().width) + 'pt';
-            bassoC.style.lineHeight = (0.3*bg_logo.getBoundingClientRect().width) + 'pt';
-            bassoC.style.width = (Math.PI*bg_logo.getBoundingClientRect().height) + 'px';
+            bassoC.style.marginLeft = (0.5*bg_logo.getBoundingClientRect().width) + 'px';
+            bassoC.style.marginTop = (0.25*bg_logo.getBoundingClientRect().height) + 'px';
+            bassoC.style.fontSize = (0.3*header.getBoundingClientRect().height) + 'pt';
+            bassoC.style.lineHeight = (0.3*header.getBoundingClientRect().height) + 'pt';
+            bassoC.style.height = (Math.PI*header.getBoundingClientRect().width) + 'px';
 
-            title.style.marginTop = (0.35*bg_logo.getBoundingClientRect().height) + 'px';
-            title.style.fontSize = (0.2*bg_logo.getBoundingClientRect().width) + 'pt';
-            title.style.lineHeight = (0.2*bg_logo.getBoundingClientRect().width) + 'pt';
 
-            line.style.marginTop = (title.getBoundingClientRect().height + 0.35*bg_logo.getBoundingClientRect().height) + 'px';
+            titolo.style.top = (2*header.getBoundingClientRect().height) + 'px';
+            titolo.style.fontSize = (0.038*header.getBoundingClientRect().width) + 'pt';
+            titolo.style.lineHeight = (0.038*header.getBoundingClientRect().width) + 'pt';
 
+            line.style.top = (titolo.getBoundingClientRect().height+titolo.getBoundingClientRect().top) + 'px';
+            line.style.width = (25+titolo.getBoundingClientRect().width) + 'px';
+
+            man_ev.style.top = (0.2*line.getBoundingClientRect().top+line.getBoundingClientRect().top) + 'px';
         }
 
         window.addEventListener('resize', responsive);

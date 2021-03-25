@@ -16,6 +16,7 @@ body {
 	background : #A42C38;
 	min-width: 50px;
 	min-height: 50px;
+	max-height: 165px;
 }
 
 
@@ -100,8 +101,6 @@ body {
 
 .scheda_manga {
 	background : #3C3C3B;
-	width : 50%;
-	height : 71%;
 	border-radius : 10pt;
 	-moz-border-radius : 10pt;
 	-webkit-border-radius : 10pt;
@@ -130,4 +129,22 @@ body {
     text-align: center;
 	margin: 5px;
 	width: 50%;
+}
+
+@media only screen and (min-width: 800px){
+	.scheda_manga {
+		max-width: 40%;
+	}
+}
+
+@media only screen and (max-width: 800px){
+	.scheda_manga {
+		max-height: 200px;
+	}
+}
+
+@media only screen and (width: 768px){
+	.scheda_manga {
+		max-width: 70%;
+	}
 }

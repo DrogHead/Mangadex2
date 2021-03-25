@@ -42,6 +42,7 @@
         let bg_logo = document.getElementsByClassName('bg_logo')[0];
         let bassoC = document.getElementById("ilBassoConsiglio");
         let minFontSize = 15;
+        let maxFontSize = 50;
         bassoC.style.fontSize = minFontSize + 'pt';
 
         let titolo = document.getElementsByClassName('titolo')[0];
@@ -50,6 +51,7 @@
 
         let man_ev = document.getElementsByClassName('mangas')[0];
         let titoliM = document.getElementsByClassName('titolo_manga');
+        let sche_man = document.getElementsByClassName('scheda_manga')[1];
         let TminFontSize = 10;
         let TmaxFontSize = 20;
         for(let t of titoliM) {
@@ -62,7 +64,7 @@
 
             bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
 
-            bassoC.style.marginLeft = (0.5*bg_logo.getBoundingClientRect().width) + 'px';
+            bassoC.style.left = (0.04*barraBasso.getBoundingClientRect().width) + 'px';
 
             let currentFontSize = (0.03*barraBasso.getBoundingClientRect().width);
             bassoC.style.fontSize = currentFontSize + 'pt';
@@ -71,17 +73,43 @@
             }
             bassoC.style.lineHeight = bassoC.style.fontSize;
 
-            bassoC.style.top = 0.5*(barraBasso.getBoundingClientRect().height - bassoC.children[0].getBoundingClientRect().height) + 'px';
+            bassoC.style.top = 0.55*(barraBasso.getBoundingClientRect().height - bassoC.children[0].getBoundingClientRect().height) + 'px';
 
 
-            titolo.style.top = (2*barraBasso.getBoundingClientRect().height) + 'px';
-            titolo.style.fontSize = (0.03*barraBasso.getBoundingClientRect().width) + 'pt';
-            titolo.style.lineHeight = (0.03*barraBasso.getBoundingClientRect().width) + 'pt';
+            titolo.style.top = (1.5*barraBasso.getBoundingClientRect().height) + 'px';
+            let currentFontSizetit = (0.06*screen.width);
+            titolo.style.fontSize = currentFontSizetit + 'pt';
+            if(currentFontSizetit > maxFontSize) {
+                titolo.style.fontSize = maxFontSize + 'pt';
+            }
+            titolo.style.lineHeight = titolo.style.fontSize;
 
             line.style.top = (titolo.getBoundingClientRect().height+titolo.getBoundingClientRect().top) + 'px';
             line.style.width = (25+titolo.getBoundingClientRect().width) + 'px';
 
             man_ev.style.top = (0.2*line.getBoundingClientRect().top+line.getBoundingClientRect().top) + 'px';
+            /*if(screen.width < 800){
+                for(let s of sche_man) {
+                    s.style.width = (0.8*screen.width) + 'px';
+                    s.style.height = (1.5*sche_man.getBoundingClientRect().width) + 'px';
+                }
+            }else{
+                for(let s of sche_man) {
+                    s.style.width = (0.8*$(Window).width()) + 'px';
+                    s.style.height = (1.5*sche_man.getBoundingClientRect().width) + 'px';
+                }
+            }*/
+            //for(let s of sche_man){
+                if(screen.width < 800){
+                    for (let i = 0; i < document.getElementsByClassName('scheda_manga').length; i++) {
+                        document.getElementsByClassName('scheda_manga')[i].style.width = (0.8*screen.width) + 'px';
+                        document.getElementsByClassName('scheda_manga')[i].style.height = (1.02*sche_man.getBoundingClientRect().width) + 'px';                        
+                    }
+                }else{
+                    sche_man.style.width = (0.8*$(Window).width()) + 'px';
+                    sche_man.style.height = (1.5*sche_man.getBoundingClientRect().width) + 'px';
+                }
+            //}
             
             for(let t of titoliM) {
                 let TcurrentFontSize = 0.02*man_ev.getBoundingClientRect().width

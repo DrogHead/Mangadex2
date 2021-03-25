@@ -14,8 +14,8 @@ body {
 
 .bg_logo {
 	background : #A42C38;
-	min-width: 50px;
-	min-height: 50px;
+	min-width: 75px;
+	min-height: 75px;
 }
 
 
@@ -48,13 +48,9 @@ body {
 	display: flex;
 	flex-direction: row;
 	
-	min-height: 50px;
+	min-height: 75px;
 }
 
-.welcome {
-	background : #3C3C3B;
-	min-height: 15vh;
-}
 
 .bg_destra {
 	width: 100%;
@@ -65,34 +61,30 @@ body {
 	align-items: center;
 }
 
-
 .mangas {
-    position: absolute;
     display: flex;
     flex-direction: column;
 	align-items: center;
 
-	margin-top: 25%;
+	margin-top: 10%;
 }
 
 
 .titolo {
+	position: relative;
     font-family: Montserrat;
 	font-weight: bold;
 	color: #C6C6C6;
-	top: 12%;
-    font-size: 24pt;
-    line-height: 24pt;
-	position: absolute;
+    font-size: 22.5pt;
+    line-height: 22.5pt;
 	min-width: fit-content;
 }
 
 
 .linea {
-    position: absolute;
-	top: 14%;
+	top: 0.5%;
 	width: 45%;
-	margin-bottom: 15%;
+	margin-bottom: 5%;
     height: 0;
 	width: 60%;
 
@@ -106,15 +98,15 @@ body {
 	background : #3C3C3B;
 	width : 90%;
 	height : 71%;
-	border-radius : 10pt;
-	-moz-border-radius : 10pt;
-	-webkit-border-radius : 10pt;
-    overflow: hidden;
-	
+	border-radius : 2%;
+	-moz-border-radius : 2%;
+	-webkit-border-radius : 2%;
+	overflow: hidden;
+
 	display: flex;
 	flex-direction: row;
 
-	margin-bottom: 25px;
+	margin-bottom: 2%;
 	max-height: 71%;
 
 }
@@ -152,7 +144,6 @@ body {
 	color : #C6C6C6;
 	font-size: 15pt;
 	display: none;
-	overflow-x: scroll;
 	
 }
 
@@ -162,7 +153,6 @@ body {
 	font-family : calibri;
 	color : #C6C6C6;
 	font-size: 15px;
-	overflow-x: scroll;
 	
 }
 
@@ -174,10 +164,10 @@ body {
 	}
 	.titolo{
 		font-size: 25pt;
+		line-height: 25pt;
 	}
 	.linea{
-		width: 45%;
-		margin-bottom: 15%;
+		width: 50%;
 	}
 	.titolo_manga{
 		font-size: 15pt;
@@ -196,11 +186,11 @@ body {
 		width: 80%;
 	}
 	.titolo{
-		font-size: 26pt;
+		font-size: 27.5pt;
+		line-height: 27.5pt;
 	}
 	.linea{
-		width: 45%;
-		margin-bottom: 15%;
+		width: 42%;
 	}
 	.titolo_manga{
 		font-size: 16pt;
@@ -219,11 +209,11 @@ body {
 		width: 75%;
 	}
 	.titolo{
-		font-size: 27pt;
+		font-size: 30pt;
+		line-height: 30pt;
 	}
 	.linea{
-		width: 45%;
-		margin-bottom: 15%;
+		width: 40%;
 	}
 	.titolo_manga{
 		font-size: 16pt;
@@ -245,13 +235,11 @@ body {
 		width: 70%;
 	}
 	.titolo{
-		top: -3.2%;
-		font-size: 28pt;
+		font-size: 32.5pt;
+		line-height: 32.5pt;
 	}
 	.linea{
-		top: -1.2%;
-		width: 45%;
-		margin-bottom: 15%;
+		width: 38%;
 	}
 	.titolo_manga{
 		font-size: 17pt;
@@ -270,13 +258,11 @@ body {
 		width: 65%;
 	}
 	.titolo{
-		top: -3.4%;
-		font-size: 27pt;
+		font-size: 35pt;
+		line-height: 35pt;
 	}
 	.linea{
-		top: -1.4%;
-		width: 45%;
-		margin-bottom: 15%;
+		width: 35%;
 	}
 	.titolo_manga{
 		font-size: 20pt;
@@ -295,13 +281,11 @@ body {
 		width: 60%;
 	}
 	.titolo{
-		top: -3.6%;
-		font-size: 28pt;
+		font-size: 37.5pt;
+		line-height: 37.5pt;
 	}
 	.linea{
-		top: -1.6%;
-		width: 45%;
-		margin-bottom: 15%;
+		width: 33%;
 	}
 	.titolo_manga{
 		font-size: 21pt;
@@ -320,13 +304,11 @@ body {
 		width: 55%;
 	}
 	.titolo{
-		top: -3.8%;
-		font-size: 29pt;
+		font-size: 40pt;
+		line-height: 40pt;
 	}
 	.linea{
-		top: -1.8%;
-		width: 45%;
-		margin-bottom: 15%;
+		width: 30%;
 	}
 
 	.titolo_manga{
@@ -346,13 +328,11 @@ body {
 		width: 50%;
 	}
 	.titolo{
-		top: -4%;
-		font-size: 30pt;
+		font-size: 42.5pt;
+		line-height: 42.5pt;
 	}
 	.linea{
-		top: -2%;
-		width: 45%;
-		margin-bottom: 15%;
+		width: 30%;
 	}
 	.titolo_manga{
 		font-size: 23pt;

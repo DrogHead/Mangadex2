@@ -14,9 +14,9 @@
     
     <div class="barra_sinistra">
         <div class="bg_logo">
-            <img id="logo" src="images/logo/logo-dark.png">
+            <a href="/"> <img id="logo" src="/images/logo/logo-dark.png"></a>
         </div>
-        <span id="ilBassoConsiglio">Il Basso Consiglio</span>
+        <span id="ilBassoConsiglio"><a href="/">Il Basso Consiglio</a></span>
     </div>
 
     <div class="bg_destra">
@@ -25,10 +25,12 @@
         <span class="linea"></span>
             <% manga.forEach(m => { %>
                 <div class="scheda_manga">
-                    <img class="img_manga" src=<%=m.img %>>
+                    <img class="img_manga" src=<%= m.img %>>
                     <div class="info">
                         <span class="titolo_manga">
-                        <%= m.titolo %>
+                            <a href=<%=m.url%>>
+                                <%= m.titolo %>
+                            </a>
                         </span>
                         <p class="descrizione">
                             <%= m.desc %>

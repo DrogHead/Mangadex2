@@ -5,36 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capitolo 1</title>
+    <title>Il Basso Consiglio</title>
+    <link href="http://localhost:8000/css/chapters.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <div class="barra_sinistra">
+        <div class="bg_logo">
+            <a href="/"> <img id="logo" src="/images/logo/logo-dark.png"></a>
+        </div>
+        <span id="ilBassoConsiglio"><a href="/">Il Basso Consiglio</a></span>
+    </div>
 
-    <% for(let i = 1; i <= num; i++) { %>
-        <% var id = (i < 10 ? "0" : "" ) + i%>
-        <% var image = "/images/Maou/C001/" + id + ".png" %>
-        <img src="<%=image%>">
-        <br>
-    <% } %>
+    
+    <div class="bg_destra">
+        <div class="scheda_manga">
+            <% for(let i = 1; i <= num; i++) { %>
+                <% var id = (i < 10 ? "0" : "" ) + i%>
+                <% var image = "/images/Maou/C001/" + id + ".png" %>
+                <img class="immagine" src="<%=image%>">
+                <br>
+            <% } %>
+        </div>
 
 
     <script>
 
-        let imgs = document.getElementsByTagName('img');
+        let bg_logo = document.getElementsByClassName('bg_logo')[0];
+        // let imgs = document.getElementsByTagName('img');
 
-        for(let img of imgs) {
-            let newW = (0.7*screen.width) + "px";
-            img.setAttribute('width', newW);
+        // for(let img of imgs) {
+        //     let newW = (0.7*screen.width) + "px";
+        //     img.setAttribute('width', newW);
+        // }
+
+
+        // R E S P O N S I V E
+        function responsive() {
+            bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
+
         }
+
+        window.addEventListener('resize', responsive);
+
+        responsive();
 
     </script>
 

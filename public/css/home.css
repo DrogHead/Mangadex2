@@ -154,15 +154,6 @@ body {
 }
 
 
-.links {
-	text-align: left;
-	font-family : calibri;
-	color : #C6C6C6;
-	font-size: 15px;
-	
-}
-
-
 @media only screen and (min-width:500px) {
 	.scheda_manga{
 		width: 85%;
@@ -179,9 +170,6 @@ body {
 	}
 	.descrizione{
 		font-size: 15pt;
-	}
-	.links{
-		font-size: 13pt;
 	}
   }
 
@@ -202,9 +190,6 @@ body {
 	.descrizione{
 		font-size: 16pt;
 	}
-	.links{
-		font-size: 13pt;
-	}
   }
 
 @media only screen and (min-width: 900px) {
@@ -223,9 +208,6 @@ body {
 	}
 	.descrizione{
 		font-size: 16pt;
-	}
-	.links{
-		font-size: 14pt;
 	}
 	.descrizione {
 		display: block;
@@ -249,9 +231,6 @@ body {
 	.descrizione{
 		font-size: 17pt;
 	}
-	.links{
-		font-size: 15pt;
-	}
   }
 
 @media only screen and (min-width: 1300px) {
@@ -271,9 +250,6 @@ body {
 	.descrizione{
 		font-size: 20pt;
 	}
-	.links{
-		font-size: 17pt;
-	}
   }
 
 @media only screen and (min-width: 1500px) {
@@ -292,9 +268,6 @@ body {
 	}
 	.descrizione{
 		font-size: 21pt;
-	}
-	.links{
-		font-size: 18pt;
 	}
   }
 
@@ -316,9 +289,6 @@ body {
 	.descrizione{
 		font-size: 22pt;
 	}
-	.links{
-		font-size: 19pt;
-	}
   }
 
 @media only screen and (min-width: 1900px) {
@@ -337,8 +307,5 @@ body {
 	}
 	.descrizione{
 		font-size: 23pt;
-	}
-	.links{
-		font-size: 20pt;
 	}
   }

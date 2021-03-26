@@ -88,6 +88,10 @@ body {
 	padding: 0 5%;
 }
 
+.button > a {
+	text-decoration: none;
+}
+
 #top{
 	font-size: 25pt;
 }

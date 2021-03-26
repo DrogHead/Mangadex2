@@ -9,7 +9,7 @@
     <link href="http://localhost:8000/css/chapters.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body onload="responsive()">
 
     <div class="barra_sinistra">
         <div class="bg_logo">
@@ -20,7 +20,12 @@
 
     
     <div class="bg_destra">
-        <div class="scheda_manga">
+        <div class="controlli">
+            <div id="prev" class="button">&triangleleft;</div>
+            <div id="list" class="button">&#x2630;</div>
+            <div id="next" class="button">&triangleright;</div>
+        </div>
+        <div class="pagine">
             <% for(let i = 1; i <= num; i++) { %>
                 <% var id = (i < 10 ? "0" : "" ) + i%>
                 <% var image = "/images/Maou/C001/" + id + ".png" %>
@@ -28,30 +33,38 @@
                 <br>
             <% } %>
         </div>
+        <div class="controlli">
+            <div id="prev" class="button">&triangleleft;</div>
+            <div id="top" class="button">&bigtriangleup;</div>
+            <div id="next" class="button">&triangleright;</div>
+        </div>
+    </div> 
 
-
-    <script>
+    <script defer>
 
         let bg_logo = document.getElementsByClassName('bg_logo')[0];
-        // let imgs = document.getElementsByTagName('img');
-
-        // for(let img of imgs) {
-        //     let newW = (0.7*screen.width) + "px";
-        //     img.setAttribute('width', newW);
-        // }
-
+        let pagine = document.getElementsByClassName('pagine')[0];
+        let controlli = document.getElementsByClassName('controlli');
 
         // R E S P O N S I V E
         function responsive() {
             bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
+            for(let con of controlli){
+                con.style.width = pagine.getBoundingClientRect().width + 'px';
+            }
 
         }
 
+        responsive();
+
         window.addEventListener('resize', responsive);
+        document.addEventListener('ready', responsive)
 
         responsive();
 
     </script>
+
+    
 
 </body>
 

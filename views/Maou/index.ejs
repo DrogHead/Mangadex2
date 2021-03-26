@@ -9,7 +9,7 @@
     <link href="http://localhost:8000/css/manga.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="b">
+<body id="b" onload="responsive()>
 
     <div class="barra_sinistra">
         <div class="bg_logo">
@@ -55,7 +55,6 @@
         // R E S P O N S I V E
         function responsive() {
             bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
-
         }
 
         window.addEventListener('resize', responsive);

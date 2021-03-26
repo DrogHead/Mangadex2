@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset='utf-8'>
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    
+
     <div class="barra_sinistra">
         <div class="bg_logo">
             <a href="/"> <img id="logo" src="/images/logo/logo-dark.png"></a>
@@ -21,11 +21,11 @@
 
     <div class="bg_destra">
         <div class="mangas">
-        <span class="titolo">Serie in evidenza</span>
-        <span class="linea"></span>
-            <% manga.forEach(m => { %>
+            <span class="titolo">Serie in evidenza</span>
+            <span class="linea"></span>
+            <% manga.forEach(m=> { %>
                 <div class="scheda_manga">
-                    <img class="img_manga" src=<%= m.img %>>
+                    <img class="img_manga" src=<%=m.img%>>
                     <div class="info">
                         <span class="titolo_manga">
                             <a href=<%=m.url%>>
@@ -34,6 +34,16 @@
                         </span>
                         <p class="descrizione">
                             <%= m.desc %>
+                        </p>
+                        <p class="descrizione">
+                            <% let primo = m.url + "/cap001"%>
+                            <a href=<%=primo%>>Primo capitolo</a>
+                        </p>
+                        <p class="descrizione">
+                            <% let l = m.chapterLinks.length %>
+                            <% let index = (l < 100 ? (l < 10 ? "00" : "0") : "") + l; %>
+                            <% let ultimo = m.url + "/cap" + index%>
+                            <a href=<%=ultimo%>>Ultimo capitolo</a>
                         </p>
                     </div>
                 </div>

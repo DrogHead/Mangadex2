@@ -11,6 +11,14 @@ const PORT = 8000;
 
 const MAXNUM = 999;
 
+
+function generateString(_num) {
+    let __str = (_num < 100 ? (_num < 10 ? "00" : "0") : "") + _num;
+    return __str;
+}
+
+
+
 // Database
 const manga = [{
     titolo: 'Maou no Ore ga Dorei Elf',
@@ -60,7 +68,7 @@ manga.forEach(m => {
         files.forEach(file => {
 
             n++;
-            let str = (n < 100 ? (n < 10 ? "00" : "0") : "") + n;
+            let str = generateString(n);
 
             m.chapterLinks.push('http://127.0.0.1:' + PORT + m.url + '/cap' + str);
 
@@ -80,9 +88,7 @@ manga.forEach(m => {
 
 // Homepage
 app.get('/', (req, res) => {
-    res.render('index', {
-        manga, PORT
-    })
+    res.render('index', { manga, PORT });
 });
 
 
@@ -101,7 +107,7 @@ manga.forEach(m => {
 // Chapters pages
 for (let i = 1; i <= MAXNUM; i++) {
 
-    let str = (i < 100 ? (i < 10 ? "00" : "0") : "") + i;
+    let str = generateString(i);
 
     manga.forEach(m => {
 
@@ -110,7 +116,12 @@ for (let i = 1; i <= MAXNUM; i++) {
             else {
                 let num = m.numOfPages[i - 1];
                 let index = str;
-                res.render(m.nick + '/cap' + str, { num, index });
+                let prevIndex = i-1;
+                let nextIndex = i+1;
+                let prevLink = 'http://localhost:'+PORT+m.url+'/cap'+generateString(i-1);
+                let nextLink = 'http://localhost:'+PORT+m.url+'/cap'+generateString(i+1);
+                let last = m.chapterLinks.length;
+                res.render(m.nick + '/cap' + str, { num, index, prevIndex, nextIndex, prevLink, nextLink, last });
             }
         });
 

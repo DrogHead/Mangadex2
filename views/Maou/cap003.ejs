@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Basso Consiglio</title>
     <link href="http://localhost:8000/css/chapters.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body onload="responsive()">
@@ -22,10 +23,20 @@
     <div class="bg_destra">
         <div class="controlli">
             <div id="prev" class="button">
-                &triangleleft;
+                <% if (prevIndex < 1) { %>
+                    &triangleleft;
+                <% } else { %>
+                    <a href="<%=prevLink%>">&triangleleft;</a>
+                <% } %>
             </div>
             <div id="list" class="button"><a href="/Maou">&#x2630;</a></div>
-            <div id="next" class="button">&triangleright;</div>
+            <div id="next" class="button">
+                <% if (nextIndex > last) { %>
+                    &triangleright;
+                <% } else { %>
+                    <a href="<%=nextLink%>">&triangleright;</a>
+                <% } %>
+            </div>
         </div>
         <div class="pagine">
             <% for(let i = 1; i <= num; i++) { %>
@@ -36,46 +47,25 @@
             <% } %>
         </div>
         <div class="controlli">
-            <div id="prev" class="button">&triangleleft;</div>
-            <div id="top" class="button">&bigtriangleup;</div>
-            <div id="next" class="button">&triangleright;</div>
+            <div id="prev" class="button">
+                <% if (prevIndex < 1) { %>
+                    &triangleleft;
+                <% } else { %>
+                    <a href="<%=prevLink%>">&triangleleft;</a>
+                <% } %>
+            </div>
+            <div id="top" class="button" onclick="topFunction()">&bigtriangleup;</div>
+            <div id="next" class="button">
+                <% if (nextIndex > last) { %>
+                    &triangleright;
+                <% } else { %>
+                    <a href="<%=nextLink%>">&triangleright;</a>
+                <% } %>
+            </div>
         </div>
     </div> 
 
-    <script defer>
-
-        let bg_logo = document.getElementsByClassName('bg_logo')[0];
-        let pagine = document.getElementsByClassName('pagine')[0];
-        let controlli = document.getElementsByClassName('controlli');
-
-        // R E S P O N S I V E
-        function responsive() {
-            bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
-            for(let con of controlli){
-                con.style.width = pagine.getBoundingClientRect().width + 'px';
-            }
-        }
-
-        responsive();
-
-        window.addEventListener('resize', responsive);
-        document.addEventListener('ready', responsive)
-
-        responsive();
-
-        // function topFunction() {
-        //     window.scrollTo({top: 0, behavior: 'smooth'});
-        // }
-
-        $(document).ready(function(){
-            $("div[id='top']").click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 1500);
-            });
-        });
-
-    </script>
-
-    
+    <script defer src="http://localhost:8000/js/chapters.js"></script>
 
 </body>
 

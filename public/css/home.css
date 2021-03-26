@@ -1,3 +1,7 @@
+a:link {color:#C6C6C6;}
+a:visited {color:#C6C6C6;}
+a:active {color:#A42C38;}
+
 body {
 	background-color: #1F2022;
 	display: flex;
@@ -14,8 +18,8 @@ body {
 
 .bg_logo {
 	background : #A42C38;
-	min-width: 50px;
-	min-height: 50px;
+	min-width: 75px;
+	min-height: 75px;
 }
 
 
@@ -28,14 +32,18 @@ body {
 #ilBassoConsiglio {
 	font-family: Montserrat;
 	font-weight: bold;
+	font-size: 20pt;
 	color: #C6C6C6;
-
 	position: relative;
 
 	min-width: fit-content;
 	min-height: fit-content;
+	align-self: center;
+	margin-left: 5%;
 
 }
+
+#ilBassoConsiglio > a { text-decoration: none;}
 
 
 .barra_sinistra {
@@ -45,8 +53,8 @@ body {
 
 	display: flex;
 	flex-direction: row;
-
-	min-height: 50px;
+	
+	min-height: 75px;
 }
 
 
@@ -56,29 +64,35 @@ body {
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+	align-items: center;
 }
 
+.mangas {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+
+	margin-top: 10%;
+}
+
+
 .titolo {
+	position: relative;
     font-family: Montserrat;
 	font-weight: bold;
 	color: #C6C6C6;
-    font-size: 25pt;
-    line-height: 25pt;
-
-	position: absolute;
-
+    font-size: 22.5pt;
+    line-height: 22.5pt;
 	min-width: fit-content;
 }
 
 
 .linea {
-    position: absolute;
-	top: 20%;
-
-    /* margin-top: 6.5%; */
+	top: 0.5%;
+	width: 45%;
+	margin-bottom: 5%;
     height: 0;
-	width: 35%;
+	width: 60%;
 
     border: 2px solid #A42C38;
     border-radius: 8px;
@@ -86,48 +100,245 @@ body {
 	user-select: none;
 }
 
-
-.mangas {
-    position: absolute;
-    /*visibility: hidden;*/
-    display: flex;
-    flex-direction: column;
-	align-items: center;
-
-    top: 20%;
-}
-
-
 .scheda_manga {
 	background : #3C3C3B;
-	width : 50%;
+	width : 90%;
 	height : 71%;
-	border-radius : 10pt;
-	-moz-border-radius : 10pt;
-	-webkit-border-radius : 10pt;
-    overflow: hidden;
+	border-radius : 2%;
+	-moz-border-radius : 2%;
+	-webkit-border-radius : 2%;
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: row;
 
-	margin-bottom: 25px;
+	margin-bottom: 2%;
+	max-height: 71%;
+
 }
 
-
 .img_manga {
-	position: relative;
+	position: static;
     width : 50%;
 	height : 100%;
 }
 
+.info{
+	display: flex;
+	flex-direction: column;
+	margin: 3%;
+	align-items:center;
+	justify-content:space-around;
+}
 
 .titolo_manga {
 	font-family : Montserrat;
 	font-weight : bold;
+	font-size: 15pt;
 	color : #C6C6C6;
-    height: fit-content;
+     height: fit-content;
     position: relative;
-    text-align: center;
+	text-align: center;
 	margin: 5px;
-	width: 50%;
+	width: 100%;
 }
+
+
+.descrizione {
+	text-align: left;
+	font-family : calibri;
+	color : #C6C6C6;
+	font-size: 15pt;
+	display: none;
+	
+}
+
+
+.links {
+	text-align: left;
+	font-family : calibri;
+	color : #C6C6C6;
+	font-size: 15px;
+	
+}
+
+
+@media only screen and (min-width:500px) {
+	.scheda_manga{
+		width: 85%;
+	}
+	.titolo{
+		font-size: 25pt;
+		line-height: 25pt;
+	}
+	.linea{
+		width: 50%;
+	}
+	.titolo_manga{
+		font-size: 15pt;
+	}
+	.descrizione{
+		font-size: 15pt;
+	}
+	.links{
+		font-size: 13pt;
+	}
+  }
+
+@media only screen and (min-width:700px) {
+	.scheda_manga{
+		width: 80%;
+	}
+	.titolo{
+		font-size: 27.5pt;
+		line-height: 27.5pt;
+	}
+	.linea{
+		width: 42%;
+	}
+	.titolo_manga{
+		font-size: 16pt;
+	}
+	.descrizione{
+		font-size: 16pt;
+	}
+	.links{
+		font-size: 13pt;
+	}
+  }
+
+@media only screen and (min-width: 900px) {
+	.scheda_manga{
+		width: 75%;
+	}
+	.titolo{
+		font-size: 30pt;
+		line-height: 30pt;
+	}
+	.linea{
+		width: 40%;
+	}
+	.titolo_manga{
+		font-size: 16pt;
+	}
+	.descrizione{
+		font-size: 16pt;
+	}
+	.links{
+		font-size: 14pt;
+	}
+	.descrizione {
+		display: block;
+	}
+  }
+
+@media only screen and (min-width: 1100px) {
+	.scheda_manga{
+		width: 70%;
+	}
+	.titolo{
+		font-size: 32.5pt;
+		line-height: 32.5pt;
+	}
+	.linea{
+		width: 38%;
+	}
+	.titolo_manga{
+		font-size: 17pt;
+	}
+	.descrizione{
+		font-size: 17pt;
+	}
+	.links{
+		font-size: 15pt;
+	}
+  }
+
+@media only screen and (min-width: 1300px) {
+	.scheda_manga{
+		width: 65%;
+	}
+	.titolo{
+		font-size: 35pt;
+		line-height: 35pt;
+	}
+	.linea{
+		width: 35%;
+	}
+	.titolo_manga{
+		font-size: 20pt;
+	}
+	.descrizione{
+		font-size: 20pt;
+	}
+	.links{
+		font-size: 17pt;
+	}
+  }
+
+@media only screen and (min-width: 1500px) {
+	.scheda_manga{
+		width: 60%;
+	}
+	.titolo{
+		font-size: 37.5pt;
+		line-height: 37.5pt;
+	}
+	.linea{
+		width: 33%;
+	}
+	.titolo_manga{
+		font-size: 21pt;
+	}
+	.descrizione{
+		font-size: 21pt;
+	}
+	.links{
+		font-size: 18pt;
+	}
+  }
+
+  @media only screen and (min-width: 1700px) {
+	.scheda_manga{
+		width: 55%;
+	}
+	.titolo{
+		font-size: 40pt;
+		line-height: 40pt;
+	}
+	.linea{
+		width: 30%;
+	}
+
+	.titolo_manga{
+		font-size: 22pt;
+	}
+	.descrizione{
+		font-size: 22pt;
+	}
+	.links{
+		font-size: 19pt;
+	}
+  }
+
+@media only screen and (min-width: 1900px) {
+	.scheda_manga{
+		width: 50%;
+	}
+	.titolo{
+		font-size: 42.5pt;
+		line-height: 42.5pt;
+	}
+	.linea{
+		width: 30%;
+	}
+	.titolo_manga{
+		font-size: 23pt;
+	}
+	.descrizione{
+		font-size: 23pt;
+	}
+	.links{
+		font-size: 20pt;
+	}
+  }

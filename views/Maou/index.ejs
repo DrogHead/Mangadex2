@@ -1,20 +1,67 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M2</title>
+    <title>Il Basso Consiglio</title>
+    <link href="http://localhost:8000/css/manga.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="b">
+<body id="b" onload="responsive()>
 
-    <% for(let i=0; i < nMaou; i++) { %>
-        <% var link = maouLinks[i]%>
-        <a href="<%=link%>">Capitolo <%=i+1%></a>
-        <br>
-    <% } %>
+    <div class="barra_sinistra">
+        <div class="bg_logo">
+            <a href="/"> <img id="logo" src="/images/logo/logo-dark.png"></a>
+        </div>
+        <span id="ilBassoConsiglio"><a href="/">Il Basso Consiglio</a></span>
+    </div>
+
+    
+    <div class="bg_destra">
+                <div class="scheda_manga">
+            <img class="img_manga" src="images/cover/maou.png">
+            <div class="info">
+                <span class="titolo_manga">
+                <%= m.titolo %>
+                </span>
+                <p class="descrizione">
+                    <%= m.desc %>
+                </p>
+            </div>
+        </div>
+
+        <div class="lista">
+            <% for(let i = nMaou-1; i >= 0; i--) { %>
+                <% var link = maouLinks[i]%>
+                <a href="<%=link%>">Capitolo <%=i+1%></a>
+                <br>
+            <% } %>
+
+        </div>        
+
+    </div>
+
+
+    
+    
+
+
+    <script defer>
+
+        let bg_logo = document.getElementsByClassName('bg_logo')[0];
+
+        // R E S P O N S I V E
+        function responsive() {
+            bg_logo.style.width = bg_logo.getBoundingClientRect().height + 'px';
+        }
+
+        window.addEventListener('resize', responsive);
+
+        responsive();
+
+    </script>
 
 </body>
 

@@ -61,6 +61,7 @@ manga.forEach(m => {
 
             n++;
             let str = (n < 100 ? (n < 10 ? "00" : "0") : "") + n;
+
             m.chapterLinks.push('http://127.0.0.1:' + PORT + m.url + '/cap' + str);
 
             let nn = 0;
@@ -99,15 +100,17 @@ manga.forEach(m => {
 
 // Chapters pages
 for (let i = 1; i <= MAXNUM; i++) {
+
     let str = (i < 100 ? (i < 10 ? "00" : "0") : "") + i;
+
     manga.forEach(m => {
 
-        app.get(m.url+'/cap'+str, (req, res) => {
-            if(i > m.chapterLinks.length) return;
+        app.get(m.url + '/cap' + str, (req, res) => {
+            if (i > m.chapterLinks.length) return;
             else {
-                let num = m.numOfPages[i-1];
-                let index = i;
-                res.render(m.nick+'/cap'+str, {num, index});
+                let num = m.numOfPages[i - 1];
+                let index = str;
+                res.render(m.nick + '/cap' + str, { num, index });
             }
         });
 

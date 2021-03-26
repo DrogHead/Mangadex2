@@ -53,7 +53,7 @@ body {
 	display: flex;
 	flex-direction: row;
 
-	min-height: 75px;
+	min-height: 75px
 }
 
 .bg_destra {

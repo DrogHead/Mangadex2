@@ -39,6 +39,7 @@ body {
 	min-height: fit-content;
 	align-self: center;
 	margin-left: 5%;
+	margin-right: 5%;
 
 
 }
@@ -52,8 +53,6 @@ body {
 
 	display: flex;
 	flex-direction: row;
-
-	min-height: 75px;
 }
 
 .bg_destra {
@@ -64,16 +63,50 @@ body {
 	align-items: center;
 }
 
+.controlli {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.button{
+	background : #3C3C3B;
+	width : fit-content;
+    height: fit-content;
+
+	font-family: Montserrat;
+	font-weight: bold;
+	font-size: 20pt;
+	line-height: 40pt;
+	color: #C6C6C6;
+
+	border-radius : 8%;
+	-moz-border-radius : 8%;
+	-webkit-border-radius : 8%;
+	
+	margin: 5% 0;
+	padding: 0 5%;
+}
+
+#top{
+	font-size: 25pt;
+}
+
+#prev, #next{
+	font-size: 30pt;
+
+}
+
 .immagine{
 	align-self: center;
 	background-position: center;
     width : 100%;
-	max-width: 1500px;
+	max-width: 1200px;
 }
 
 
 
-/* @media only screen and (min-width:500px) {
+@media only screen and (min-width:500px) {
 	.scheda_manga{
 		width: 65%;
 	}
@@ -161,4 +194,4 @@ body {
 	.scheda_manga{
 		width: 30%;
 	}
-  } */
+  }
